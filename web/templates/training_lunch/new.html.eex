@@ -1,0 +1,6 @@
+<h2>New training lunch</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: training_lunch_path(@conn, :create) %>
+
+<%= link "Back", to: training_lunch_path(@conn, :index) %>

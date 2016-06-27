@@ -1,0 +1,23 @@
+<h2>Show training lunch</h2>
+
+<ul>
+
+  <li>
+    <strong>Presenter:</strong>
+    <%= @training_lunch.presenter %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @training_lunch.date %>
+  </li>
+
+  <li>
+    <strong>Topic:</strong>
+    <%= @training_lunch.topic %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: training_lunch_path(@conn, :edit, @training_lunch) %>
+<%= link "Back", to: training_lunch_path(@conn, :index) %>

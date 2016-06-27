@@ -1,0 +1,30 @@
+<h2>Listing training lunches</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Presenter</th>
+      <th>Date</th>
+      <th>Topic</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for training_lunch <- @training_lunches do %>
+    <tr>
+      <td><%= training_lunch.presenter %></td>
+      <td><%= training_lunch.date %></td>
+      <td><%= training_lunch.topic %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: training_lunch_path(@conn, :show, training_lunch), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: training_lunch_path(@conn, :edit, training_lunch), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: training_lunch_path(@conn, :delete, training_lunch), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New training lunch", to: training_lunch_path(@conn, :new) %>
