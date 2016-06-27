@@ -56,11 +56,11 @@ mix local.hex
 
   * **Tuple** - Stored all in memory at once and not meant to be iterated. Think of this as a type that's used for returns with multiple pieces of information, like `{ :error, "A more descriptive explanation" }`.
 
-  * **List/Array** - O(n) operation that starts at the beginning of the list. This is much like an Array in Ruby. Cheaper to prepend than append.
+  * **List (Ruby Array)** - This is much like an Array in Ruby. Elixir's List is a O(n) operation (linear) that starts at the beginning of the list, so it's cheaper to prepend rather than append. Ruby's Array ``<<`` operator is an O(1) operation (constant), but otherwise is a O(n) operation.
 
   * **Keyword List** - Like an Array but with keys, but keys are not unique. Is an array of tuples with some extra sauce.
 
-  * **Map/Hash** - Maps are unordered, Hashes are ordered.
+  * **Map (Ruby Hash)** - Maps are unordered, Hashes are ordered.
 
   * **= operator (Match)** - If unassigned variable is on left side, then it assigns. If the variable is on the right side then it acts like a comparison but raises an exception if the values don't match.
   ```elixir
@@ -173,14 +173,15 @@ Video at 15:15-26:27
 
     ```elixir
     Repo.insert! %ElixirExample.TrainingLunch{
-    presenter: "David Bernheisel",
-    topic: "Elixir/Phoenix",
-    date: %Ecto.DateTime{
-      year: 2016,
-      month: 6,
-      day: 26,
-      hour: 12,
-      min: 30,
-      sec: 0}
+      presenter: "David Bernheisel",
+      topic: "Elixir/Phoenix",
+      date: %Ecto.DateTime{
+        year: 2016,
+        month: 6,
+        day: 26,
+        hour: 12,
+        min: 30,
+        sec: 0}
+      }
     }
     ```
