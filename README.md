@@ -109,7 +109,7 @@ mix local.hex
   # => "Hello Andres and Andrew!"
   ```
 
-  * **Guard** - Methods can have guards that route calls depending on the parameter Type.
+  * **Guard** - Methods can have guards that route calls depending on the condition (eg parameter type).
 
   ```elixir
   defmodule Greeter do
