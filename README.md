@@ -1,10 +1,10 @@
 # Elixir
 
 ## Good resources
-[Elixir School](http://elixirschool.com/lessons/basics/basics/)
-[Phoenix Docs](http://www.phoenixframework.org/docs/overview)
-[Elixir Docs](http://elixir-lang.org/getting-started/introduction.html)
-[Elixir Koans](https://github.com/elixirkoans/elixir-koans)
+  * [Elixir School](http://elixirschool.com/lessons/basics/basics/)
+  * [Phoenix Docs](http://www.phoenixframework.org/docs/overview)
+  * [Elixir Docs](http://elixir-lang.org/getting-started/introduction.html)
+  * [Elixir Koans](https://github.com/elixirkoans/elixir-koans)
 
 ## Install Elixir
 
@@ -62,7 +62,7 @@ mix local.hex
 
   * **Map/Hash** - Maps are unordered, Hashes are ordered.
 
-  * **= operator (Match)** - If variable is on left side, then it assigns. If the variable is on the right side then it acts like a comparison but raises an exception if the values don't match.
+  * **= operator (Match)** - If unassigned variable is on left side, then it assigns. If the variable is on the right side then it acts like a comparison but raises an exception if the values don't match.
   ```elixir
   x = 1
   # => "1"
@@ -133,7 +133,7 @@ mix local.hex
   ```
 
 # Plug
-Plug is like Rack in Ruby with a little Sinatra.
+Plug is like Rack in Ruby with a little Sinatra for handling APIs.
 https://hexdocs.pm/plug
 
 
@@ -162,7 +162,7 @@ Video at 15:15-26:27
   * Put our new resource into the router `resources "/training_lunches", TrainingLunchController`
   * `mix ecto.migrate`
   * Check it out at http://localhost:4000
-  * Whoops i meant to make it presenter, not attendee; let's change that.
+  * Whoops! I meant to make it presenter, not attendee; let's change that.
   * `mix ecto.gen.migration rename_attendee_to_presenter`
   * open migration file and put this into `change`: `rename table(:training_lunches), :attendee, to: :presenter`
   * `mix ecto.migrate`
@@ -184,7 +184,3 @@ Video at 15:15-26:27
       sec: 0}
     }
     ```
-
-
-
-
