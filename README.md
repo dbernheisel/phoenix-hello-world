@@ -1,5 +1,11 @@
 # Elixir
 
+## Good resources
+[Elixir School](http://elixirschool.com/lessons/basics/basics/)
+[Phoenix Docs](http://www.phoenixframework.org/docs/overview)
+[Elixir Docs](http://elixir-lang.org/getting-started/introduction.html)
+[Elixir Koans](https://github.com/elixirkoans/elixir-koans)
+
 ## Install Elixir
 
 ```bash
@@ -25,28 +31,30 @@ mix local.hex
 | String concat           | `"Hello " + "World"`      | `"Hello " <> "World"`
 | Add to list             | `['some'] << 'list'`      | `['some'] ++ ['list']`
 | module method on types  | `"some string".upcase`    | `String.upcase("some string")`
-| Quoted strings          | Prefer single-quotes. Double-quotes for interpolation | double-quotes are UTF-8. single-quotes are not.
+| Quoted strings          | Prefer single-quotes. Double-quotes for interpolation | double-quotes are UTF-8. single-quotes are not. Interpolation happens in both.
+
 
 | Ruby                    | Elixir                    | Notes |
 |:-----------------------:|:-------------------------:|:-------|
-| Symbol                  | Atom                      |
+| Symbol                  | Atom                      | 
 | String                  | String                    | Stored as binary in Elixir becuase it defaults to UTF-8
-| Array                   | List                      |
+| Array                   | List                      | 
 | Hash                    | Map                       | Hashes are ordered since Ruby 1.9. Maps are not ordered.
-| `module Something`      | `defmodule Something do`  |
+| `|` operator            | _doesn't exist_ but this works: `head, tail = some_array[0], some_array[1..-1]`          | Splits a list `[head|tail] = some_list`
+| `module Something`      | `defmodule Something do`  | 
 | `class Something`       | _doesn't exist_           | use defmodule instead.
-| `def something`         | `def something do`        |
-| `private def something` | `defp something do`       |
-| `rake some_task`        | `mix some_task`           |
+| `def something`         | `def something do`        | 
+| `private def something` | `defp something do`       | 
+| `rake some_task`        | `mix some_task`           | 
 | `gem`                   | _doesn't exist_           | gem is global. Mix is always in context to project. Hex.pm serves as RubyGems.org.
-| Gemfile                 | mix.exs                   |
-| `bundle install`        | `mix deps.get`            |
+| Gemfile                 | mix.exs                   | 
+| `bundle install`        | `mix deps.get`            | 
 | `rails c`               | `iex -S mix`              | Elixir doesn't rely on the framework to provide contextual console
 
 
 ## Notes
 
-  * **Tuple** - Stored all in memory at once and not meant to be iterated. Think of this as a type that's used for returns with multiple pieces of information, like `{ :error, "A more descriptive explanation" }`
+  * **Tuple** - Stored all in memory at once and not meant to be iterated. Think of this as a type that's used for returns with multiple pieces of information, like `{ :error, "A more descriptive explanation" }`.
 
   * **List/Array** - O(n) operation that starts at the beginning of the list. This is much like an Array in Ruby. Cheaper to prepend than append.
 
@@ -126,38 +134,42 @@ mix local.hex
 
 # Plug
 Plug is like Rack in Ruby with a little Sinatra.
+https://hexdocs.pm/plug
 
 
 # Ecto
 Ecto is like ActiveRecord in Ruby.
+https://hexdocs.pm/ecto
 
 
 # Phoenix
 > "A productive web framework that does not compromise speed and maintainability."
+https://hexdocs.pm/phoenix
 
 ## Install
   * Create project folder `mkdir elixir_example && cd elixir_example`
   * Install Phoenix `mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez`
   * Create Phoenix project `mix phoenix.new .`
-  * Create database `mix ecto.create`
+  * Create database `mix ecto.create`. You may need to edit config/dev.exs and provide your real postgres server information.
 
 ## Live Reload && Performance
-http://www.phoenixframework.org/docs/overview
+http://www.phoenixframework.org/docs/overview or https://vimeo.com/131633172
 Video at 15:15-26:27
 
 ## Let's scaffold something
+  * Start the server in a separate terminal session: `mix phoenix.server`
   * Create new model `mix phoenix.gen.html TrainingLunch training_lunches attendee:string date:datetime topic:string`
-  * Put model into router `resources "/training_lunches", TrainingLunchController`
+  * Put our new resource into the router `resources "/training_lunches", TrainingLunchController`
   * `mix ecto.migrate`
-  * check it out at http://localhost:4000
+  * Check it out at http://localhost:4000
   * Whoops i meant to make it presenter, not attendee; let's change that.
   * `mix ecto.gen.migration rename_attendee_to_presenter`
   * open migration file and put this into `change`: `rename table(:training_lunches), :attendee, to: :presenter`
   * `mix ecto.migrate`
-  * check it out at http://localhost:4000. Blows up. Nice error handling.
-  * Edit files to replace attendee with presenter
-  * check it out at http://localhost:4000. Now it works.
-  * Insert a seed
+  * Check it out at http://localhost:4000. Blows up. Nice error handling.
+  * Edit files to replace `attendee` with `presenter`
+  * Check it out at http://localhost:4000. Now it works.
+  * Insert a seed by editing priv/repo/seeds.exs
 
     ```elixir
     Repo.insert! %ElixirExample.TrainingLunch{
