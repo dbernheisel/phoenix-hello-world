@@ -5,6 +5,7 @@
   * [Phoenix Docs](http://www.phoenixframework.org/docs/overview)
   * [Elixir Docs](http://elixir-lang.org/getting-started/introduction.html)
   * [Elixir Koans](https://github.com/elixirkoans/elixir-koans)
+  * [Awesome Elixir List](https://github.com/h4cc/awesome-elixir)
 
 ## Install Elixir
 
