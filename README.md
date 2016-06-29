@@ -12,9 +12,8 @@
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
-echo '. $HOME/.asdf/asdf.sh' >> ~/.bash_profile # or .zprofile or .zshrc
-# skip the next line if you're using ZSH. Autocompletion isn't supported from asdf until this pull request is merged: https://github.com/asdf-vm/asdf/pull/69/files
-echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bash_profile
+echo '. $HOME/.asdf/asdf.sh' >> ~/.bash_profile # or .bashrc for Linux users, or .zshrc for ZSH users
+echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bash_profile # or .bashrc for Linux users, or .zshrc for ZSH users.
 asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
 asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
 asdf install erlang 18.0
