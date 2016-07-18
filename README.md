@@ -40,6 +40,7 @@ mix local.hex
 | Symbol                  | Atom                      | 
 | String                  | String                    | Stored as binary in Elixir becuase it defaults to UTF-8
 | Array                   | List                      | 
+| some_method!            | some_method!              | In Ruby, bang methods typically represent methods that mutate the subjects. In Elixir, the convention means to raise an exception instead of respond with an error message
 | Hash                    | Map                       | Hashes are ordered since Ruby 1.9. Maps are not ordered.
 | `|` operator            | _doesn't exist_ but this works: `head, tail = some_array[0], some_array[1..-1]`          | Splits a list `[head|tail] = some_list`
 | `module Something`      | `defmodule Something do`  | 
