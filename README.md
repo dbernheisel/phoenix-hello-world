@@ -17,10 +17,12 @@ echo '. $HOME/.asdf/asdf.sh' >> ~/.bash_profile # or .bashrc for Linux users, or
 echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bash_profile # or .bashrc for Linux users, or .zshrc for ZSH users.
 asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
 asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
-asdf install erlang 18.0
-asdf install elixir 1.3.0
-asdf global erlang 18.0
-asdf global elixir 1.3.0
+asdf install erlang 19.0
+asdf install elixir 1.3.1
+asdf install nodejs 6.5.0
+asdf global erlang 19.0
+asdf global elixir 1.3.1
+asdf global nodejs 6.5.0
 mix local.hex
 ```
 
@@ -28,11 +30,11 @@ mix local.hex
 
 | Operation               | Ruby                      | Elixir 
 |:------------------------|:-------------------------:|:--------:
-| Call methods            | `some_method(parameter)`  | `parameter |> some_method`
+| Call methods            | `some_method(parameter)`  | `some_method(parameter)` or `parameter |> some_method`
 | String concat           | `"Hello " + "World"`      | `"Hello " <> "World"`
 | Add to list             | `['some'] << 'list'`      | `['some'] ++ ['list']`
 | module method on types  | `"some string".upcase`    | `String.upcase("some string")`
-| Quoted strings          | Prefer single-quotes. Double-quotes for interpolation | double-quotes are UTF-8. single-quotes are not. Interpolation happens in both.
+| Quoted strings          | Prefer single-quotes. Double-quotes for interpolation | double-quotes are binary lists (UTF-8). single-quotes are character lists. Interpolation happens in both.
 
 
 | Ruby                    | Elixir                    | Notes |
@@ -140,7 +142,7 @@ https://hexdocs.pm/plug
 
 
 # Ecto
-Ecto is like ActiveRecord in Ruby.
+Ecto is like ActiveRecord in Ruby, but less magic (which is a good thing).
 https://hexdocs.pm/ecto
 
 
